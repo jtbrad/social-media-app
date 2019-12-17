@@ -1,8 +1,11 @@
 import React from 'react'
-import { Header, } from 'semantic-ui-react';
+import { Link, } from 'react-router-dom';
+import { Header, Menu,  } from 'semantic-ui-react';
 
 const Navbar = () => (
-  <Header as="h1">Navbar</Header>
+  <Menu>
+    <Menu.Item as={Link} to="/">Home</Menu.Item>
+  </Menu>
 );
 
 export default Navbar;

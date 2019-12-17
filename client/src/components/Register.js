@@ -1,8 +1,10 @@
 import React from 'react';
-import { Header, } from 'semantic-ui-react';
+import { Header, Segment,  } from 'semantic-ui-react';
 
 const Register = () => (
-  <Header as="h1">Register</Header>
+  <Segment>
+      <Header as="h1">Register</Header>
+  </Segment>
 );
 
 export default Register;

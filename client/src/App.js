@@ -5,6 +5,7 @@ import Home from './components/Home';
 import Login from './components/Login';
 import Navbar from './components/Navbar';
 import NoMatch from './components/NoMatch';
+import ProtectedRoute from './components/ProtectedRoute';
 import Register from './components/Register';
 
 const App = () => (
@@ -12,7 +13,7 @@ const App = () => (
   <Navbar />
   <FetchUser>
     <Switch>
-      <Route exact path="/" component={Home} />
+      <ProtectedRoute exact path="/" component={Home} />
       <Route exact path="/register" component={Register} />
       <Route exact path="/login" component={Login} />
       <Route component={NoMatch} /> 

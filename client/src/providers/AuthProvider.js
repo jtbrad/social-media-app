@@ -9,11 +9,21 @@ export const AuthProvider = (props) => {
   const [user, setUser] = useState(null);
 
   const handleLogin = (newUser, history) => {
-    debugger
     axios.post("/api/auth/sign_in", newUser)
       .then( res => {
         setUser(res.data.data);
         history.push("/");
+      })
+      .catch( err => {
+        console.log(err);
+      })
+  };
+
+  const handleLogout = (history) => {
+    axios.delete("/api/auth/sign_out")
+      .then( res => {
+        setUser(null);
+        history.push("/login");
       })
       .catch( err => {
         console.log(err);
@@ -33,9 +43,11 @@ export const AuthProvider = (props) => {
 
   return (
     <AuthContext.Provider value={{
-      user,
       handleLogin,
+      handleLogout,
       handleRegister,
+      setUser: (user) => setUser(user),
+      user,
       }}>
       { props.children }
     </AuthContext.Provider>

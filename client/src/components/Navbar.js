@@ -12,7 +12,10 @@ const Navbar = (props) => {
       <Menu.Menu position="right">
         {
           auth.user ?
-          <Menu.Item onClick={ () => auth.handleLogout(props.history) }>Logout</Menu.Item>
+          <>
+            <Menu.Item as={Link} to={`/${auth.user.id}/profile`}>Profile</Menu.Item>
+            <Menu.Item onClick={ () => auth.handleLogout(props.history) }>Logout</Menu.Item>
+          </>
           :
           <>
             <Menu.Item as={Link} to="/register">Register</Menu.Item>
